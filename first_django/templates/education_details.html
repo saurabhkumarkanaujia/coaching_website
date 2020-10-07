@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bootstrap Navbar Dropdown Login and Signup Form with Social Buttons</title>
+{% include 'web-css.html' %}
+<style type="text/css">
+	
+</style>
+</head> 
+<body>
+    {{ user.is_authenticated }}
+	
+{% include 'soft-menu.html' %}
+{% for message in messages %}
+    <div class="alert alert-{{message.tags}} alert-success">{{ message }}</div>
+{% endfor %} 
+<div class="container">
+    <div class="pull-right btn btn-warning"><a href="{% url 'education' %}">Add Education</a></div>
+</div>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Sr.No.</th>
+            <th>Education Name</th>
+            <th>Education University</th>
+            <th>Max Marks</th>
+            <th>Percentage</th>
+            <th>Obtained Marks</th>
+            <th>Passing Year</th>
+            <th>Remark</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+
+
+{% include 'footer.html' %}
+
+{% include 'web-js.html' %}
+</body>         
+</html>                                                        

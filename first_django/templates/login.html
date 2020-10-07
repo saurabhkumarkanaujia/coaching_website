@@ -1,0 +1,360 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Login</title>
+{% include 'web-css.html' %}
+<style type="text/css">
+	body{
+		font-family: 'Varela Round', sans-serif;
+	}
+	.form-control {
+		box-shadow: none;		
+		font-weight: normal;
+		font-size: 13px;
+	}
+	.form-control:focus {
+		border-color: #33cabb;
+		box-shadow: 0 0 8px rgba(0,0,0,0.1);
+	}
+	.navbar-header.col {
+		padding: 0 !important;
+	}	
+	.navbar {
+		background: #fff;
+		padding-left: 16px;
+		padding-right: 16px;
+		border-bottom: 1px solid #dfe3e8;
+		border-radius: 0;
+	}
+	.nav-link img {
+		border-radius: 50%;
+		width: 36px;
+		height: 36px;
+		margin: -8px 0;
+		float: left;
+		margin-right: 10px;
+	}
+	.navbar .navbar-brand, .navbar .navbar-brand:hover, .navbar .navbar-brand:focus {
+		padding-left: 0;
+		font-size: 20px;
+		padding-right: 50px;
+	}
+	.navbar .navbar-brand b {
+		font-weight: bold;
+		color: #33cabb;		
+	}
+	.navbar .form-inline {
+        display: inline-block;
+    }
+	.navbar .nav li {
+		position: relative;
+	}
+	.navbar .nav li a {
+		color: #888;
+	}
+	.search-box {
+        position: relative;
+    }	
+    .search-box input {
+        padding-right: 35px;
+		border-color: #dfe3e8;
+        border-radius: 4px !important;
+		box-shadow: none
+    }
+	.search-box .input-group-addon {
+        min-width: 35px;
+        border: none;
+        background: transparent;
+        position: absolute;
+        right: 0;
+        z-index: 9;
+        padding: 7px;
+		height: 100%;
+    }
+    .search-box i {
+        color: #a0a5b1;
+		font-size: 19px;
+    }
+	.navbar .nav .btn-primary, .navbar .nav .btn-primary:active {
+		color: #fff;
+		background: #33cabb;
+		padding-top: 8px;
+		padding-bottom: 6px;
+		vertical-align: middle;
+		border: none;
+	}	
+	.navbar .nav .btn-primary:hover, .navbar .nav .btn-primary:focus {		
+		color: #fff;
+		outline: none;
+		background: #31bfb1;
+	}
+	.navbar .navbar-right li:first-child a {
+		padding-right: 30px;
+	}
+	.navbar .nav-item i {
+		font-size: 18px;
+	}
+	.navbar .dropdown-item i {
+		font-size: 16px;
+		min-width: 22px;
+	}
+	.navbar ul.nav li.active a, .navbar ul.nav li.open > a {
+		background: transparent !important;
+	}	
+	.navbar .nav .get-started-btn {
+		min-width: 120px;
+		margin-top: 8px;
+		margin-bottom: 8px;
+	}
+	.navbar ul.nav li.open > a.get-started-btn {
+		color: #fff;
+		background: #31bfb1 !important;
+	}
+	.navbar .dropdown-menu {
+		border-radius: 1px;
+		border-color: #e5e5e5;
+		box-shadow: 0 2px 8px rgba(0,0,0,.05);
+	}
+	.navbar .nav .dropdown-menu li {
+		color: #999;
+		font-weight: normal;
+	}
+	.navbar .nav .dropdown-menu li a, .navbar .nav .dropdown-menu li a:hover, .navbar .nav .dropdown-menu li a:focus {
+		padding: 8px 20px;
+		line-height: normal;
+	}
+	.navbar .navbar-form {
+		border: none;
+	}
+	.navbar .dropdown-menu.form-wrapper {
+		width: 280px;
+		padding: 20px;
+		left: auto;
+		right: 0;
+        font-size: 14px;
+	}
+	.navbar .dropdown-menu.form-wrapper a {		
+		color: #33cabb;
+		padding: 0 !important;
+	}
+	.navbar .dropdown-menu.form-wrapper a:hover{
+		text-decoration: underline;
+	}
+	.navbar .form-wrapper .hint-text {
+		text-align: center;
+		margin-bottom: 15px;
+		font-size: 13px;
+	}
+	.navbar .form-wrapper .social-btn .btn, .navbar .form-wrapper .social-btn .btn:hover {
+		color: #fff;
+        margin: 0;
+		padding: 0 !important;
+		font-size: 13px;
+		border: none;
+		transition: all 0.4s;
+		text-align: center;
+		line-height: 34px;
+		width: 47%;
+		text-decoration: none;
+    }	
+	.navbar .social-btn .btn-primary {
+		background: #507cc0;
+	}
+	.navbar .social-btn .btn-primary:hover {
+		background: #4676bd;
+	}
+	.navbar .social-btn .btn-info {
+		background: #64ccf1;
+	}
+	.navbar .social-btn .btn-info:hover {
+		background: #4ec7ef;
+	}
+	.navbar .social-btn .btn i {
+		margin-right: 5px;
+		font-size: 16px;
+		position: relative;
+		top: 2px;
+	}
+	.navbar .form-wrapper .form-footer {
+		text-align: center;
+		padding-top: 10px;
+		font-size: 13px;
+	}
+	.navbar .form-wrapper .form-footer a:hover{
+		text-decoration: underline;
+	}
+	.navbar .form-wrapper .checkbox-inline input {
+		margin-top: 3px;
+	}
+	.or-seperator {
+        margin-top: 32px;
+		text-align: center;
+		border-top: 1px solid #e0e0e0;
+    }
+    .or-seperator b {
+		color: #666;
+        padding: 0 8px;
+		width: 30px;
+		height: 30px;
+		font-size: 13px;
+		text-align: center;
+		line-height: 26px;
+		background: #fff;
+		display: inline-block;
+		border: 1px solid #e0e0e0;
+		border-radius: 50%;
+		position: relative;
+		top: -15px;
+		z-index: 1;
+    }
+    .navbar .checkbox-inline {
+		font-size: 13px;
+	}
+	.navbar .navbar-right .dropdown-toggle::after {
+		display: none;
+	}
+	@media (min-width: 1200px){
+		.form-inline .input-group {
+			width: 300px;
+			margin-left: 30px;
+		}
+	}
+	@media (max-width: 768px){
+		.navbar .dropdown-menu.form-wrapper {
+			width: 100%;
+			padding: 10px 15px;
+			background: transparent;
+			border: none;
+		}
+		.navbar .form-inline {
+			display: block;
+		}
+		.navbar .input-group {
+			width: 100%;
+		}
+		.navbar .nav .btn-primary, .navbar .nav .btn-primary:active {
+			display: block;
+		}
+	}
+	
+	.form-control {
+		box-shadow: none;
+		border-color: #ddd;
+	}
+	.form-control:focus {
+		border-color: #4aba70; 
+	}
+	.login-form {
+        width: 350px;
+		margin: 0 auto;
+		padding: 30px 0;
+	}
+    .login-form form {
+        color: #434343;
+		border-radius: 1px;
+    	margin-bottom: 15px;
+        background: #fff;
+		border: 1px solid #f3f3f3;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+        padding: 30px;
+	}
+	.login-form h4 {
+		text-align: center;
+		font-size: 22px;
+        margin-bottom: 20px;
+	}
+    .login-form .avatar {
+        color: #fff;
+		margin: 0 auto 30px;
+        text-align: center;
+		width: 100px;
+		height: 100px;
+		border-radius: 50%;
+		z-index: 9;
+		background: #4aba70;
+		padding: 15px;
+		box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+	}
+    .login-form .avatar i {
+        font-size: 62px;
+    }
+    .login-form .form-group {
+        margin-bottom: 20px;
+    }
+	.login-form .form-control, .login-form .btn {
+		min-height: 40px;
+		border-radius: 2px; 
+        transition: all 0.5s;
+	}
+	.login-form .close {
+        position: absolute;
+		top: 15px;
+		right: 15px;
+	}
+	.login-form .btn {
+		background: #4aba70;
+		border: none;
+		line-height: normal;
+	}
+	.login-form .btn:hover, .login-form .btn:focus {
+		background: #42ae68;
+	}
+    .login-form .checkbox-inline {
+        float: left;
+    }
+    .login-form input[type="checkbox"] {
+        margin-top: 2px;
+    }
+    .login-form .forgot-link {
+        float: right;
+    }
+    .login-form .small {
+        font-size: 13px;
+    }
+    .login-form a {
+        color: #4aba70;
+    }
+</style>
+</head> 
+<body>
+	{% include 'menu.html' %}
+<div class="container-fluid bg-info text-white p-5 text-center" style="margin-top:-20px;font-size:25px;">Home > Login</div>
+
+
+<div class="container-fluid">
+
+	<div class="login-form">   
+			{% for message in messages %}
+
+			<div class="alert alert-{{message.tags}} alert-error">{{ message }}</div>
+			{% endfor %} 
+		<form action="{% url 'login' %}" method="post">
+			{% csrf_token %}
+			<div class="avatar"><i class="material-icons">&#xE7FF;</i></div>
+			<h4 class="modal-title">Login to Your Account</h4>
+			<div class="form-group">
+				<input type="text" class="form-control" name="username" placeholder="Username" required="required">
+			</div>
+			<div class="form-group">
+				<input type="password" class="form-control" name="password" placeholder="Password" required="required">
+			</div>
+			<div class="form-group small clearfix">
+				<label class="checkbox-inline"><input type="checkbox"> Remember me</label>
+				<a href="#" class="forgot-link">Forgot Password?</a>
+			</div> 
+			<input type="submit" class="btn btn-primary btn-block btn-lg" value="Login">              
+		</form>			
+		<div class="text-center small">Don't have an account? <a href="#">Sign up</a></div>
+	</div>
+</div>
+
+
+
+{% include 'footer.html' %}
+
+{% include 'web-js.html' %}
+</html>                                                        

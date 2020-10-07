@@ -1,0 +1,108 @@
+{% load static %} 
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    {% include 'web-css.html' %}
+
+    <title>Contact Us</title>
+    <style>
+      .nav-link{
+        font-weight:bold;
+      }
+      ul li .nav-link:hover{
+        background-color:blue;
+        color:white!important;
+        border-radius:5px;
+      }
+      .active{
+	    background-color:blue;
+	    color:white!important;
+	    border-radius:5px;
+	    }
+      .ul_social{
+        list-style:none;
+      }
+      .li_social{
+        float:left;
+        padding:10px;
+        width:40px;
+        border-radius:50%;
+        margin-left:7px;
+      }
+      .li_social:hover{
+        background-color:orange;
+      }
+      i{
+        margin-left:4px;
+      }
+      .fb_back{
+        background-color:blue;
+      }
+      .li_back{
+        background-color:red;
+      }
+      .tw_back{
+        background-color:skyblue;
+      }
+      .ins_back{
+        background-color:pink;
+      }
+      
+    </style>
+</head>
+<body>
+  
+    <div class="container-fluid bg-dark">
+        <div class="row text-white p-2">
+            <div class="col-md-6">Phone:-8953831639 Email:-saurabh.kanaujia020@gmail.com</div>
+            <div class="col-md-6">
+              
+              <ul class="ul_social float-right">
+                <li class="li_social fb_back"><i class="fa fa-facebook"></i></li>
+                <li class="li_social li_back"><i class="fa fa-linkedin-square"></i></li>
+                <li class="li_social ins_back"><i class="fa fa-instagram"></i></li>
+                <li class="li_social tw_back"><i class="fa fa-twitter-square"></i></li>
+              </ul>
+          </div>
+      </div>
+    </div>
+    <div class="">
+      {% include 'menu.html' %}
+      
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <h4>Corporate Office</h4>
+            ADDRESS:<br>
+            Janpriya Complex, Phase-II Kursi Road,
+            Tedhi Puliya Lucknow - 226010 Uttar Pradesh, INDIA<br><br>
+        
+             EMAIL:<br>
+            : support@analyzeinfotech.in<br>
+            
+            : admin@analyzeinfotech.in<br>
+            
+             OUR PHONE:<br>
+            : (+91)9453193268<br>
+            
+            : (+91)9839434821<br>
+            
+             WEBSITE : analyzeinfotech.in<br>
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+    </div>
+      
+    {% include 'footer.html' %}
+
+    {% include 'web-js.html' %}
+    
+</body>
+</html>

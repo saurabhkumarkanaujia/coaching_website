@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>reg_details</title>
+{% include 'web-css.html' %}
+<style type="text/css">
+	
+</style>
+</head> 
+<body>
+    {{ user.is_authenticated }}
+	
+{% include 'soft-menu.html' %}
+{% for message in messages %}
+    <div class="alert alert-{{message.tags}} alert-success">{{ message }}</div>
+{% endfor %} 
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Sr.No.</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Type</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for data in user_data %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{data.first_name}}</td>
+            <td>{{data.last_name}}</td>
+            <td>{{data.username}}</td>
+            <td>{{data.email}}</td>
+            <td>{% if data.is_superuser %}
+                <span class="bg-warning">SuperUser</span>
+                {% else %}
+                <span class="bg-success">Normal User</span>
+                {% endif %}
+
+            </td>
+            <td>
+                <a href="{% url 'edit_user' data.id %}" class="btn btn-success btn-sm">Edit</a>
+                <a href="{% url 'delete_user' data.id %}" class="btn btn-danger btn-sm">Delete</a>
+                <a href="" class="btn btn-warning btn-sm">View</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+{% include 'footer.html' %}
+
+{% include 'web-js.html' %}
+</body>
+</html>                                                        

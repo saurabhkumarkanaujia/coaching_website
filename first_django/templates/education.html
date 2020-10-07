@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>User Record</title>
+{% include 'web-css.html' %}
+<style type="text/css">
+	
+</style>
+</head> 
+<body>
+		
+		
+	
+{% include 'soft-menu.html' %}
+
+<div class="container-fluid">
+
+	<div class="signup-form">
+{% for message in messages %}
+
+<div class="alert alert-{{message.tags}} alert-green">{{ message }}</div>
+{% endfor %}
+    <form action="{% url 'insert_edu_details' %}" method="POST">
+		{% for message in messages %}
+		<h2>Sign Up</h2>
+		<p>Please fill in this form to create an account!</p>
+		<hr>
+			{{ message }}
+		{% endfor %}
+		{% csrf_token %}
+		
+        <div class="form-group text-dark">
+            Education:
+			<input type="text" class="form-control" name="education_name" required="required">      	
+		</div>
+		<div class="form-group text-dark">
+            University:
+			<input type="text" class="form-control" name="education_university" required="required" >
+        </div>
+        <div class="form-group text-dark">
+            Maximum Marks:
+                <input type="text" class="form-control" name="max_marks" required="required" >
+        </div>
+        <div class="form-group text-dark">
+            Percentage:
+            <input type="text" class="form-control" name="percentage" required="required" >
+        </div>
+        <div class="form-group text-dark">
+            Obtained Marks:
+        	<input type="text" class="form-control" name="obtained_marks" required="required">
+        </div>
+        <div class="form-group text-dark">
+            Passing Year:
+            <input type="text" class="form-control" name="passing_year" required="required">
+        </div>
+        <div class="form-group text-dark">
+            Remark:
+            <input type="text" class="form-control" name="remark" required="required">
+        </div>
+		
+	      
+        <div class="form-group text-dark">
+			<label class="checkbox-inline"><input type="checkbox" required="required"> All the details mentioned above are true to the best of my knowledge.</a></label>
+		</div>
+		<input type="hidden" name="user_id" value="{{user.id}}">
+		
+		<div class="form-group">
+            <button type="submit" class="btn btn-success btn-lg">Submit</button>
+		</div>
+		
+    </form>
+	
+</div>
+</div>
+
+
+
+{% include 'footer.html' %}
+
+{% include 'web-js.html' %}
+</body>
+</html>                                                        
